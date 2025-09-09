@@ -72,6 +72,31 @@ app.get('/api/health', (req, res) => {
     });
 });
 
+// Debug route to test deployment
+app.get('/api/debug', (req, res) => {
+    res.json({ 
+        message: 'Debug route working!',
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development'
+    });
+});
+
+// List all routes
+app.get('/api/routes', (req, res) => {
+    const routes = [];
+    app._router.stack.forEach(function(r){
+        if (r.route && r.route.path){
+            routes.push({
+                method: Object.keys(r.route.methods)[0].toUpperCase(),
+                path: r.route.path
+            });
+        }
+    });
+    res.json({ routes });
+});
+
+
+
 // Test Amadeus connection
 app.get('/api/test-amadeus', async (req, res) => {
     try {

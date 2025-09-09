@@ -6,8 +6,10 @@ const path = require('path');
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+    origin: ['https://codepen.io', 'https://cdpn.io'],
+    credentials: true
+}));app.use(express.json());
 // app.use(express.static('public')); // Serve static files
 
 // Amadeus API configuration

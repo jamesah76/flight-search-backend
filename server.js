@@ -8,7 +8,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Serve static files
+// app.use(express.static('public')); // Serve static files
 
 // Amadeus API configuration
 const AMADEUS_BASE_URL = 'https://test.api.amadeus.com';
@@ -200,7 +200,7 @@ app.get('/api/locations/:keyword', async (req, res) => {
 
 // Serve the frontend
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.json({ message: 'Flight Search API is running! Use /api/health to test.' });
 });
 
 // Error handling middleware

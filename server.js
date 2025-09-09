@@ -227,9 +227,9 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log('🚀 Flight Search Server started');
-    console.log(`📍 Server running on http://localhost:${PORT}`);
-    console.log(`🔗 API Health: http://localhost:${PORT}/api/health`);
-    console.log(`🧪 Test Amadeus: http://localhost:${PORT}/api/test-amadeus`);
+    console.log(`📍 Server running on port ${PORT}`);
+    console.log(`🔗 API Health: /api/health`);
+    console.log(`🧪 Test Amadeus: /api/test-amadeus`);
     console.log('✈️  Ready to search flights!');
 });
 

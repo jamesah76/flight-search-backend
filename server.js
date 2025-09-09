@@ -118,6 +118,11 @@ app.get('/api/test-amadeus', async (req, res) => {
 app.post('/api/search-flights', async (req, res) => {
     try {
         console.log('🔍 Flight search request:', req.body);
+        // ... lots of code here
+    } catch (error) {
+        // ... error handling
+    }
+});
 
         // Validate required fields
         const { origin, destination, departureDate } = req.body;
